@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import avatar from "./avatar.png";
 
-function App() {
+//components
+import Projects from "./components/Projects";
+import Home from "./components/Home";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+
+const App = () => {
+  const [mainWindow, setMainWindow] = useState(<Home />);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <button
+        onClick={() => {
+          setMainWindow(<Home />);
+        }}
+      >
+        <img src={avatar} width={100} alt="Scyther" />
+      </button>
+      <div className="nav">
+        <button
+          onClick={() => {
+            setMainWindow(<Projects />);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Projects
+        </button>
+        <button
+          onClick={() => {
+            setMainWindow(<Skills />);
+          }}
+        >
+          Skills
+        </button>
+        <button onClick={() => {
+          setMainWindow(<Contact />)
+        }}>Contact</button>
+      </div>
+      <div className="main">{mainWindow}</div>
+      <div className="footer">
+        <p className="footer_text">Made with ❤️ by Chirag Sharma</p>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
