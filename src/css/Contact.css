@@ -1,9 +1,0 @@
-.contactPage{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mail img{
-    margin-bottom: -5px;
-}
